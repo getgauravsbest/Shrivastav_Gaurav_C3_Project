@@ -1,8 +1,9 @@
+import javax.swing.*;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.time.*;
 public class Restaurant {
     private String name;
     private String location;
@@ -18,14 +19,22 @@ public class Restaurant {
     }
 
     public boolean isRestaurantOpen() {
-        return true;
-        //DELETE ABOVE STATEMENT AND WRITE CODE HERE
+        int  greater_than_opening, lesser_than_closing;
+        greater_than_opening=  getCurrentTime().compareTo(openingTime); // positive means time is over opening time
+        lesser_than_closing = getCurrentTime().compareTo(closingTime); // negative means time is under opening time
+
+        if (( greater_than_opening > 0 ) && (lesser_than_closing < 0 ))
+            return true;
+        else;
+        return false;
+
     }
 
     public LocalTime getCurrentTime(){ return  LocalTime.now(); }
 
     public List<Item> getMenu() {
-        return null;
+        return menu;
+        //return null;
         //DELETE ABOVE RETURN STATEMENT AND WRITE CODE HERE
     }
 
@@ -41,7 +50,7 @@ public class Restaurant {
         Item newItem = new Item(name,price);
         menu.add(newItem);
     }
-    
+
     public void removeFromMenu(String itemName) throws itemNotFoundException {
 
         Item itemToBeRemoved = findItemByName(itemName);
@@ -62,5 +71,7 @@ public class Restaurant {
     public String getName() {
         return name;
     }
+
+
 
 }
