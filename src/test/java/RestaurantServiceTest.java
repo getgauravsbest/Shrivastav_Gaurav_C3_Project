@@ -63,6 +63,24 @@ class RestaurantServiceTest {
         assertEquals(get_restaurant,restaurant);
     }
 
+    @Test
+//     To test Find restaurant by Name method - negative case
+    public void findrestaurantbynamewhennotfound()
+    {
+        //Add  a restaurant
+        LocalTime openingTime = LocalTime.parse("10:30:00");
+        LocalTime closingTime = LocalTime.parse("22:00:00");
+        restaurant = service.addRestaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        //Search the same restaurant
+        Restaurant get_restaurant = service.findRestaurantByName("Baba's Dhaba");
+
+        //The Restaurant returned is Null
+        assertNull(get_restaurant);
+
+        //Both restaurants are same
+        assertNotEquals(get_restaurant,restaurant);
+
+    }
 
     //<<<<<<<<<<<<<<<<<<<<SEARCHING>>>>>>>>>>>>>>>>>>>>>>>>>>
 

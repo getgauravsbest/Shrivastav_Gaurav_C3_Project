@@ -50,7 +50,16 @@ class RestaurantTest {
         restaurant_new =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
         assertEquals(true,restaurant_new.isRestaurantOpen());
     }
+    @Test
+    //To test method isRestaurantOpen() - negative case
+    public void whenRestaurantisNotOpen(){
 
+        // Restaurant Start & close time before local time
+        LocalTime openingTime =  LocalTime.now().minusHours(3); // mock Restaurant start time to be passed as 3 hr before local time                                                                               // an hr before
+        LocalTime closingTime =  LocalTime.now().minusHours(2);     //mock Restaurant end time to be passed as 2 hr before local time
+        restaurant_new =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        assertEquals(false,restaurant_new.isRestaurantOpen());
+    }
 
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
