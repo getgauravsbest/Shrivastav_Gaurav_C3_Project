@@ -50,6 +50,7 @@ class RestaurantTest {
         restaurant_new =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
         assertEquals(true,restaurant_new.isRestaurantOpen());
     }
+
     @Test
     //To test method isRestaurantOpen() - negative case
     public void whenRestaurantisNotOpen(){
@@ -60,7 +61,6 @@ class RestaurantTest {
         restaurant_new =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
         assertEquals(false,restaurant_new.isRestaurantOpen());
     }
-
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -130,6 +130,14 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-
+    //New mothod for testing the price - part 3 of the submnission
+    @Test
+    //   Get the price of menu selected
+    public void testcostofmenu( ){
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.ShowCostofOrder("Sweet corn soup","Vegetable lasagne");
+    }
 
 }

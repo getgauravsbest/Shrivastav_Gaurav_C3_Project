@@ -6,7 +6,10 @@ public class Item {
         this.name = name;
         this.price = price;
     }
-
+    // New method added to get the cost of the item
+    public int getitemcost(){
+        return this.price;
+    }
 
     public String getName() {
         return name;

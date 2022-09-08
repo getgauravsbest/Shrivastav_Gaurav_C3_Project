@@ -72,6 +72,15 @@ public class Restaurant {
         return name;
     }
 
+    public void ShowCostofOrder (String ...values){
+        int menu_cost = 0;
+        //For the list of Items selected, compute the cost & display the cost
+        for(String s: values) {
+            Item itemSelected = findItemByName(s);
+            menu_cost= menu_cost+ itemSelected.getitemcost();
 
+        }
+        System.out.println("Your order will cost:" + menu_cost);
+    }
 
 }
